@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
+    id("kotlin-kapt")
     id("org.jetbrains.kotlin.android")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -44,4 +46,39 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    //Dagger Hilt
+    implementation( "com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-compiler:2.48")
+    kapt("androidx.hilt:hilt-common:1.2.0")
+
+    //Core
+    testImplementation("android.arch.core:core-testing:1.1.1")
+    androidTestImplementation("android.arch.core:core-testing:1.1.1")
+
+    //Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+
+    // retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+
+    // GSON
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    //Interceptor
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
+
+    testImplementation("androidx.test:core:1.5.0")
+    androidTestImplementation("org.mockito:mockito-core:5.2.0")
+    androidTestImplementation("org.mockito:mockito-android:4.0.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:4.1.0")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.11.0")
+
+    // Room
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
 }
