@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "AssignmentXische"
 include(":app")
 include(":core")
+include(":detail")
