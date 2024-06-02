@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".UniversityDetailFragment">
+
+    <data>
+        <variable
+            name="item"
+            type="com.xische.core.data.University" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tvItemName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_title"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/unit_2x"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="@{item.name}"
+            tools:text="Demo Text"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_title"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/unit_1x"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="@{item.country}"
+            tools:text="Demo Text"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_title"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/unit_1x"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="@{item.alphaTwoCode}"
+            tools:text="Demo Text"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_title"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/unit_1x"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="@{item.webPages.get(0)}"
+            tools:text="Demo Text"/>
+
+    </LinearLayout>
+
+</layout>
