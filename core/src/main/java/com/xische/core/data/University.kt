@@ -3,7 +3,7 @@ package com.xische.core.data
 import com.google.gson.annotations.SerializedName
 
 data class University(
-
+    val id: Int,
     @SerializedName("alpha_two_code")
     val alphaTwoCode: String,
     val country: String,
