@@ -3,6 +3,7 @@ package com.xische.assignment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.xische.core.data.UniversitiesResponse
+import com.xische.core.data.University
 import com.xische.core.models.Resource
 import com.xische.core.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,23 +23,27 @@ class DefaultMainViewModel @Inject constructor(private val mainRepository: MainR
     )
     val res = _res.asStateFlow()
 
+    fun getUniversities() {
+        viewModelScope.launch(Dispatchers.IO) {
+            _res.value = Resource.loading(null)
+            mainRepository.getUniversities().let {
+                try {
+                    _res.value = if (it.isSuccessful) {
+                        Resource.success(it.body())
+                    } else {
+                        Resource.error(it.errorBody().toString(), null)
+                    }
 
-     fun getUniversities() {
-         viewModelScope.launch (Dispatchers.IO){
-         _res.value = Resource.loading(null)
-             mainRepository.getUniversities().let {
-                 try {
-                     _res.value = if (it.isSuccessful) {
-                         Resource.success(it.body())
+                } catch (e: Exception) {
+                    Resource.error(it.errorBody().toString(), null)
+                }
+            }
+        }
+    }
+    fun saveUniversities(universities: List<University>){
+        viewModelScope.launch(Dispatchers.IO){
+            mainRepository.saveUniversities(universities)
+        }
 
-                     } else {
-                         Resource.error(it.errorBody().toString(), null)
-                     }
-
-                 } catch (e: Exception) {
-                     Resource.error(it.errorBody().toString(), null)
-                 }
-             }
-         }
     }
 }

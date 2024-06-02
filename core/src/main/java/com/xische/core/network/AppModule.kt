@@ -1,6 +1,7 @@
 package com.xische.core.network
 
 import com.xische.common.BuildConfig
+import com.xische.core.database.UniversityDao
 import com.xische.core.repository.MainRepository
 import com.xische.core.repository.MainRepositoryImpl
 import dagger.Module
@@ -52,7 +53,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideMainRepository(apiHelper: ApiHelper): MainRepository =
-        MainRepositoryImpl(apiHelper)
+    fun provideMainRepository(apiHelper: ApiHelper, universityDao: UniversityDao): MainRepository =
+        MainRepositoryImpl(apiHelper, universityDao)
 
 }

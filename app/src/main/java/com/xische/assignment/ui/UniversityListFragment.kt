@@ -62,6 +62,7 @@ class UniversityListFragment : Fragment() {
                     Status.SUCCESS -> {
                         it.data?.let { data ->
                             adapter.submitList(data)
+                            viewModel.saveUniversities(data)
                         }
                         binding.apply {
                             rvUniversity.visibility = View.VISIBLE
