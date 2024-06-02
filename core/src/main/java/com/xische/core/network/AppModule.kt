@@ -1,6 +1,8 @@
 package com.xische.core.network
 
 import com.xische.common.BuildConfig
+import com.xische.core.repository.MainRepository
+import com.xische.core.repository.MainRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -47,5 +49,10 @@ object AppModule {
     @Singleton
     @Provides
     fun provideApiHelper(apiService: ApiService): ApiHelper = ApiHelperImpl(apiService)
+
+    @Singleton
+    @Provides
+    fun provideMainRepository(apiHelper: ApiHelper): MainRepository =
+        MainRepositoryImpl(apiHelper)
 
 }
