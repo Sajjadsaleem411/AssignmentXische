@@ -3,6 +3,7 @@ plugins {
     id("kotlin-kapt")
     id("org.jetbrains.kotlin.android")
     id("dagger.hilt.android.plugin")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -91,4 +92,5 @@ dependencies {
     implementation("androidx.navigation:navigation-runtime-ktx:2.7.7")
 
     implementation(project(":core"))
+    implementation(project(":detail"))
 }

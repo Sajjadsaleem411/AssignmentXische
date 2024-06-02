@@ -85,5 +85,6 @@ class UniversityListFragment : Fragment() {
     }
 
     private fun moveToNext(item: University) {
+        findNavController().navigate(UniversityListFragmentDirections.nextAction(item))
     }
 }
